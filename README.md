@@ -1,7 +1,7 @@
 # GridBasedAuton-VexRobotics
 ### (Please give team 785Z Credits when using our code)
 
-### Current Version
+### Latest Version
 
 >**Version 1.2.0-alpha (3/21/25)**
 >- Changes/Additions
