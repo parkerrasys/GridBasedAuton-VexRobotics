@@ -1,4 +1,4 @@
-# GridBasedAuton-VexRobotics
+# GridBasedAuton-VexRobotics by team **785Z**
 ### (Please give team 785Z Credits when using our code)
 
 ### Latest Version
