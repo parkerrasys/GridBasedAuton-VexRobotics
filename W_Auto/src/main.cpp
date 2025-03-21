@@ -16,6 +16,9 @@
 // Inertial             inertial      7               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
+// Version: 1.2.0
+// Credits to Parker & Mia :)
+
 #include "vex.h"
 
 using namespace vex;
@@ -26,18 +29,23 @@ double wheelDiameter = 4;
 double oneInch = (360)/(wheelDiameter*M_PI);
 double oneTile = 24*oneInch;
 
-float robotPosX = 2;
-float robotPosY = 1;
+float robotPosX ;
+float robotPosY;
 float robotRotation = 0;
 
+void setStarting(int startingX, int startingY) {
+  robotPosX = startingX;
+  robotPosY = startingY;
+}
+
 void rotateBot(double theta) {
-  Inertial.calibrate();
- while(Inertial.isCalibrating()){
-     wait(20, msec);
- }
+  // Inertial.calibrate();
+//  while(Inertial.isCalibrating()){
+//      wait(20, msec);
+//  }
   double turningSpeed = Inertial.rotation(degrees) - theta;
   while(fabs(turningSpeed) >= 1.5){
-    turningSpeed = (Inertial.rotation(degrees) - theta)/2;
+    turningSpeed = (Inertial.rotation(degrees) - theta)/1.5;
     leftDrive.spin(reverse, turningSpeed, percent);
     rightDrive.spin(forward, turningSpeed, percent);
   }
@@ -64,9 +72,9 @@ void moveToXY(double valueX, double valueY) {
 	double b = (valueY - robotPosY);
 	double c = findC(a,b);
   double theta = findAngle(a,b);
-	rotateBot(theta - robotRotation);
-  leftDrive.setVelocity(50, percent);
-  rightDrive.setVelocity(50, percent);
+	rotateBot(theta);
+  leftDrive.setVelocity(90, percent);
+  rightDrive.setVelocity(90, percent);
 	leftDrive.spinFor(forward, c*oneTile, degrees, false);
 	rightDrive.spinFor(forward, c*oneTile, degrees);
   robotPosX = valueX;
@@ -87,13 +95,13 @@ void pre_auton(void) {
   vexcodeInit();
   leftDrive.setStopping(brake);
   rightDrive.setStopping(brake);
+  Inertial.calibrate();
+  setStarting(2,1);
 }
 
 
 
 void autonomous(void) {
-  // moveToXY(1,1);
-  // moveToXY(0, 0);
     moveToXY(3,2);
     moveToXY(2,3);
     moveToXY(1,2);
