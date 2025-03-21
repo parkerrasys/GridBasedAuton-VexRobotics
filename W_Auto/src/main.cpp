@@ -39,13 +39,9 @@ void setStarting(int startingX, int startingY) {
 }
 
 void rotateBot(double theta) {
-  // Inertial.calibrate();
-//  while(Inertial.isCalibrating()){
-//      wait(20, msec);
-//  }
   double turningSpeed = Inertial.rotation(degrees) - theta;
   while(fabs(turningSpeed) >= 1.5){
-    turningSpeed = (Inertial.rotation(degrees) - theta)/1.5;
+    turningSpeed = (Inertial.rotation(degrees) - theta)/2;
     leftDrive.spin(reverse, turningSpeed, percent);
     rightDrive.spin(forward, turningSpeed, percent);
   }
@@ -67,18 +63,25 @@ double findAngle(double a, double b)
   return(toDegrees(atan2(a,b)));
 }
 
-void moveToXY(double valueX, double valueY) {
+void moveTo(double valueX, double valueY) {
 	double a = (valueX - robotPosX);
 	double b = (valueY - robotPosY);
 	double c = findC(a,b);
   double theta = findAngle(a,b);
 	rotateBot(theta);
-  leftDrive.setVelocity(90, percent);
-  rightDrive.setVelocity(90, percent);
+  leftDrive.setVelocity(50, percent);
+  rightDrive.setVelocity(50, percent);
 	leftDrive.spinFor(forward, c*oneTile, degrees, false);
 	rightDrive.spinFor(forward, c*oneTile, degrees);
   robotPosX = valueX;
   robotPosY = valueY;
+}
+
+void lookAt(double valueX, double valueY) {
+	double a = (valueX - robotPosX);
+	double b = (valueY - robotPosY);
+  double theta = findAngle(a,b);
+	rotateBot(theta);
 }
 
 void leftDriveControl() {
@@ -96,21 +99,36 @@ void pre_auton(void) {
   leftDrive.setStopping(brake);
   rightDrive.setStopping(brake);
   Inertial.calibrate();
-  setStarting(2,1);
+  setStarting(2,0);
 }
 
 
 
 void autonomous(void) {
-    moveToXY(3,2);
-    moveToXY(2,3);
-    moveToXY(1,2);
-    moveToXY(2,1);
+    moveTo(2,1);
+    moveTo(3,1);
+    moveTo(4,2);
+    moveTo(3,1);
+    moveTo(2,1);
+    moveTo(2,0);
+    lookAt(2,1);
+}
+
+//For personal testing
+void noLimitAuton() {
+    moveTo(2,1);
+    moveTo(3,1);
+    moveTo(4,2);
+    moveTo(3,1);
+    moveTo(2,1);
+    moveTo(2,0);
+    lookAt(2,1);
 }
 
 void usercontrol(void) {
   Controller1.Axis3.changed(leftDriveControl);
   Controller1.Axis2.changed(rightDriveControl);
+  Controller1.ButtonA.pressed(noLimitAuton);
   while (1) {
 
     wait(20, msec);
