@@ -3,13 +3,13 @@
 
 ### Update Log (Current Version)
 
-Version 1.2.0 (3/21/25)
-- Changes/Additions
-  ~ Fixed 2 second delay between moving to positions
-- Current State
-  ~ Auton works with coordinate system (requires an inertial sensor)
-- Notes
-  ~ Still need to fine-tune speeds for auton
+>Version 1.2.0 (3/21/25)
+>- Changes/Additions
+>  ~ Fixed 2 second delay between moving to positions
+>- Current State
+>  ~ Auton works with coordinate system (requires an inertial sensor)
+>- Notes
+>  ~ Still need to fine-tune speeds for auton
 
 --------------------------------------------------------------------------------------
 
