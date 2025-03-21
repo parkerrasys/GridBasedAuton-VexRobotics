@@ -23,7 +23,6 @@ Version 1.2.0 (3/21/25)
 >- Notes
 >  ~ Slow start is most likely due to calculations taking time to run. Currently working on a fix for this.
 
--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 >Version 1.2.0 (3/21/25)
 >- Changes/Additions
