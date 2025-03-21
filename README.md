@@ -3,7 +3,7 @@
 
 ### Update Log (Current Version)
 
->**Version 1.2.0 (3/21/25)**
+>**Version 1.2.0-alpha (3/21/25)**
 >- Changes/Additions
 >  ~ Fixed 2 second delay between moving to positions
 >- Current State
@@ -15,7 +15,7 @@
 
 ### Version History
 
->**Version 1.1.0 (3/21/25)**
+>**Version 1.1.0-alpha (3/21/25)**
 >- Changes/Additions
 >  ~ Added grid based system for moving the robot
 >- Current State
@@ -25,7 +25,7 @@
 >--------------------------------------------------------------------------------------
 
 
->**Version 1.2.0 (3/21/25)**
+>**Version 1.2.0-alpha (3/21/25)**
 >- Changes/Additions
 >  ~ Fixed 2 second delay between moving to positions
 >- Current State
