@@ -1,4 +1,5 @@
 # GridBasedAuton-VexRobotics
+## (Please give team 785Z Credits when using our code+)
 
 ### Update Log (Current Version)
 
