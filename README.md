@@ -3,6 +3,9 @@
 
 ### Update Log (Current Version)
 
+> [!test]
+> Useful information that users should know, even when skimming content.
+
 Version 1.2.0 (3/21/25)
 - Changes/Additions
   ~ Fixed 2 second delay between moving to positions
