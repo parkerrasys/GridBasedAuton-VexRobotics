@@ -30,14 +30,6 @@ float robotPosX = 2;
 float robotPosY = 1;
 float robotRotation = 0;
 
-/*
-float a;
-float b;
-float c;
-float asq;
-float bsq;
-*/
-
 void rotateBot(double theta) {
   Inertial.calibrate();
  while(Inertial.isCalibrating()){
@@ -51,14 +43,6 @@ void rotateBot(double theta) {
   }
   robotRotation += Inertial.rotation(degrees);
 }
-
-/*
-void findC() {
-asq = (a*a);
-bsq = (b*b);
-c = sqrt(asq+bsq);
-}
-*/
 
 double toDegrees(double radians)
 {
